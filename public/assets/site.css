@@ -1,0 +1,357 @@
+/* ==========================================================================
+   富穗通訊處 — 房產財務規劃網站 共用版型
+   依 Design System：棕金色、Noto Serif TC 標題、圓角 28px 卡片、正式您口吻
+   ========================================================================== */
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font: var(--text-body-md);
+  font-family: var(--font-body);
+  color: var(--text-body);
+  background: var(--surface-canvas);
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+
+.container {
+  max-width: var(--container-page);
+  margin: 0 auto;
+  padding-left: var(--space-6);
+  padding-right: var(--space-6);
+}
+
+.kicker {
+  font: var(--text-caption);
+  font-family: var(--font-body);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--brand-accent-hover);
+}
+
+.section {
+  padding: var(--space-24) 0;
+}
+.section--tight { padding: var(--space-16) 0; }
+
+.section-head {
+  max-width: 640px;
+  margin-bottom: var(--space-12);
+}
+.section-head h2 {
+  font: var(--text-display-md);
+  font-family: var(--font-display);
+  color: var(--text-heading);
+  margin: var(--space-2) 0 var(--space-3);
+}
+.section-head p {
+  font: var(--text-body-lg);
+  font-family: var(--font-body);
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* ---------- 導覽列 ---------- */
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: color-mix(in oklch, var(--surface-canvas) 88%, transparent);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border-subtle);
+}
+.site-nav .nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+}
+.brand-mark {
+  font: var(--text-h3);
+  font-family: var(--font-display);
+  color: var(--brand-primary);
+  letter-spacing: var(--tracking-tight);
+}
+.nav-links {
+  display: flex;
+  gap: var(--space-2);
+  align-items: center;
+}
+.nav-links a {
+  font: var(--text-body-sm);
+  font-family: var(--font-body);
+  color: var(--text-muted);
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  border: 1px solid transparent;
+  transition: background var(--duration-base) var(--ease-standard), color var(--duration-base) var(--ease-standard);
+}
+.nav-links a:hover { background: var(--navy-50); color: var(--brand-primary); }
+.nav-links a.is-active {
+  background: var(--brand-primary);
+  color: var(--white);
+}
+
+/* ---------- 按鈕 ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-ui);
+  font-weight: 600;
+  font-size: 16px;
+  padding: 12px 26px;
+  border-radius: var(--radius-pill);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background var(--duration-base) var(--ease-standard), transform var(--duration-fast) var(--ease-standard);
+}
+.btn:active { transform: scale(0.97); }
+.btn--accent {
+  background: var(--brand-accent);
+  color: var(--text-on-accent);
+  border-color: var(--brand-accent);
+}
+.btn--accent:hover { background: var(--brand-accent-hover); }
+.btn--primary {
+  background: var(--brand-primary);
+  color: var(--text-on-primary);
+  border-color: var(--brand-primary);
+}
+.btn--primary:hover { background: var(--brand-primary-hover); }
+.btn--ghost-light {
+  background: transparent;
+  color: var(--white);
+  border-color: color-mix(in oklch, var(--white) 55%, transparent);
+}
+.btn--ghost-light:hover { background: color-mix(in oklch, var(--white) 14%, transparent); }
+.btn:disabled { opacity: 0.55; cursor: not-allowed; transform: none; }
+
+/* ---------- Hero（棕紅漸層，唯一允許的漸層） ---------- */
+.hero {
+  background: linear-gradient(150deg, var(--navy-800) 0%, var(--navy-900) 55%, var(--navy-950) 100%);
+  color: var(--white);
+}
+.hero-inner {
+  padding-top: var(--space-24);
+  padding-bottom: var(--space-20);
+}
+.hero-inner .kicker,
+.hero-inner h1,
+.hero-inner p.lead,
+.hero-inner .hero-actions { max-width: 640px; }
+.hero h1 {
+  font: var(--text-display-xl);
+  font-family: var(--font-display);
+  margin: var(--space-4) 0 var(--space-5);
+  letter-spacing: var(--tracking-tight);
+}
+.hero p.lead {
+  font: var(--text-body-lg);
+  font-family: var(--font-body);
+  color: color-mix(in oklch, var(--white) 82%, transparent);
+  margin: 0 0 var(--space-8);
+  max-width: 560px;
+}
+.hero .kicker { color: var(--gold-400); }
+.hero-actions { display: flex; gap: var(--space-3); flex-wrap: wrap; }
+
+/* ---------- 卡片 ---------- */
+.card {
+  background: var(--surface-card);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-md);
+  padding: var(--space-8);
+}
+.card--accent-top { border-top: 4px solid var(--brand-accent); }
+.card h3 {
+  font: var(--text-h3);
+  font-family: var(--font-body);
+  color: var(--text-heading);
+  margin: 0 0 var(--space-3);
+}
+.card p {
+  font: var(--text-body-md);
+  font-family: var(--font-body);
+  color: var(--text-muted);
+  margin: 0;
+}
+.card .card-index {
+  font: var(--text-mono);
+  font-family: var(--font-mono);
+  color: var(--brand-warm);
+  letter-spacing: var(--tracking-label);
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+}
+
+/* ---------- 信任 / 數據列 ---------- */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+}
+.stat {
+  padding: var(--space-6) var(--space-4);
+  border-left: 1px solid var(--border-subtle);
+}
+.stat:first-child { border-left: none; }
+.stat .num {
+  font: var(--text-display-md);
+  font-family: var(--font-display);
+  color: var(--brand-primary);
+  display: block;
+}
+.stat .label {
+  font: var(--text-body-sm);
+  font-family: var(--font-body);
+  color: var(--text-muted);
+  margin-top: var(--space-2);
+}
+
+/* ---------- 服務詳述區塊 ---------- */
+.service-block {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: var(--space-8);
+  padding: var(--space-10) 0;
+  border-top: 1px solid var(--border-subtle);
+}
+.service-block:first-of-type { border-top: none; }
+.service-block .svc-no {
+  font: var(--text-display-md);
+  font-family: var(--font-display);
+  color: var(--warmaccent-500);
+}
+.service-block h3 {
+  font: var(--text-h2);
+  font-family: var(--font-body);
+  color: var(--text-heading);
+  margin: 0 0 var(--space-4);
+}
+.service-block p {
+  font: var(--text-body-lg);
+  font-family: var(--font-body);
+  color: var(--text-muted);
+  margin: 0 0 var(--space-4);
+  max-width: 640px;
+}
+.service-block ul {
+  margin: 0; padding-left: 1.2em;
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  line-height: 1.9;
+}
+
+/* ---------- CTA 帶狀 ---------- */
+.cta-band {
+  background: var(--surface-emphasis);
+  color: var(--white);
+  border-radius: var(--radius-xl);
+  padding: var(--space-12);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-8);
+  flex-wrap: wrap;
+}
+.cta-band h2 {
+  font: var(--text-display-md);
+  font-family: var(--font-display);
+  margin: 0 0 var(--space-2);
+}
+.cta-band p { margin: 0; color: color-mix(in oklch, var(--white) 82%, transparent); font-family: var(--font-body); }
+
+/* ---------- 聯絡頁雙欄 ---------- */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-12);
+  align-items: start;
+}
+@media (max-width: 860px) {
+  .contact-grid { grid-template-columns: 1fr; gap: var(--space-10); }
+}
+
+/* ---------- 表單 ---------- */
+.form-card { max-width: 560px; }
+.field { display: flex; flex-direction: column; gap: 6px; margin-bottom: var(--space-5); }
+.field label {
+  font: var(--text-label);
+  font-family: var(--font-body);
+  color: var(--text-body);
+}
+.field .req { color: var(--danger-600); }
+.field input,
+.field textarea {
+  font: var(--text-body-md);
+  font-family: var(--font-body);
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-default);
+  background: var(--surface-card);
+  color: var(--text-body);
+  outline: none;
+  transition: border var(--duration-base) var(--ease-standard), box-shadow var(--duration-base) var(--ease-standard);
+}
+.field textarea { min-height: 120px; resize: vertical; }
+.field input:focus,
+.field textarea:focus {
+  border-color: var(--brand-primary);
+  box-shadow: 0 0 0 3px var(--navy-100);
+}
+.form-status { font: var(--text-body-sm); font-family: var(--font-body); min-height: 20px; margin-top: var(--space-2); }
+.form-status.is-ok { color: var(--success-600); }
+.form-status.is-err { color: var(--danger-600); }
+.form-note { font: var(--text-caption); font-family: var(--font-body); color: var(--text-faint); margin-top: var(--space-4); }
+
+/* ---------- 聯絡資訊 ---------- */
+.contact-list { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-5); }
+.contact-list li { display: flex; flex-direction: column; gap: 4px; }
+.contact-list .c-label { font: var(--text-label); font-family: var(--font-body); letter-spacing: var(--tracking-label); text-transform: uppercase; color: var(--text-faint); }
+.contact-list .c-value { font: var(--text-body-lg); font-family: var(--font-body); color: var(--text-heading); }
+
+/* ---------- 免責 / footer ---------- */
+.disclaimer { font: var(--text-caption); font-family: var(--font-body); color: var(--text-faint); margin-top: var(--space-6); }
+
+.site-footer {
+  background: var(--brand-primary);
+  color: color-mix(in oklch, var(--white) 80%, transparent);
+  margin-top: var(--space-24);
+}
+.site-footer .footer-inner {
+  padding: var(--space-12) 0;
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-8);
+  flex-wrap: wrap;
+}
+.site-footer .brand-mark { color: var(--white); }
+.site-footer a:hover { color: var(--white); }
+.site-footer .foot-links { display: flex; gap: var(--space-5); font-family: var(--font-body); font-size: 14px; }
+.site-footer .copyright { font: var(--text-caption); font-family: var(--font-body); color: color-mix(in oklch, var(--white) 60%, transparent); width: 100%; }
+
+/* ---------- 響應式 ---------- */
+@media (max-width: 860px) {
+  .grid-3, .stats-row { grid-template-columns: 1fr; }
+  .stat { border-left: none; border-top: 1px solid var(--border-subtle); padding-top: var(--space-5); }
+  .stat:first-child { border-top: none; }
+  .service-block { grid-template-columns: 1fr; gap: var(--space-4); }
+  .hero h1 { font: var(--text-display-lg); font-family: var(--font-display); }
+  .nav-links a { padding: 8px 12px; }
+}
+@media (max-width: 560px) {
+  .brand-mark { font-size: 18px; }
+  .nav-links { gap: 0; }
+  .cta-band { flex-direction: column; align-items: flex-start; }
+}
