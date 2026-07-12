@@ -1,0 +1,222 @@
+/* ===== 富穗通訊處 Design System — tokens (fonts + colors + typography + spacing) ===== */
+
+/* ==========================================================================
+   Webfont loading — Google Fonts CDN (substitution; see typography.css note)
+   ========================================================================== */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap");
+
+/* ==========================================================================
+   富穗通訊處 — Color Tokens
+   Primary: #552723 (深棕紅) · Secondary: #604847 (灰棕) · Accent/CTA: #F3C937 (亮金)
+   Soft accent: #BFA588 (暖米金) · Emphasis surface: #7B533E (暖棕)
+   ========================================================================== */
+
+:root {
+  /* ---- Primary — deep brown-red (formerly "navy" var names, kept for compat) ---- */
+  --navy-800: #552723; /* brand primary */
+  --navy-950: color-mix(in oklch, var(--navy-800) 60%, black);
+  --navy-900: color-mix(in oklch, var(--navy-800) 80%, black);
+  --navy-700: color-mix(in oklch, var(--navy-800) 85%, black);
+  --navy-600: color-mix(in oklch, var(--navy-800) 72%, white);
+  --navy-500: color-mix(in oklch, var(--navy-800) 55%, white);
+  --navy-400: color-mix(in oklch, var(--navy-800) 40%, white);
+  --navy-300: color-mix(in oklch, var(--navy-800) 25%, white);
+  --navy-200: color-mix(in oklch, var(--navy-800) 15%, white);
+  --navy-100: color-mix(in oklch, var(--navy-800) 8%, white);
+  --navy-50:  color-mix(in oklch, var(--navy-800) 4%, white);
+
+  /* ---- Secondary — grey-brown ---- */
+  --secondary-900: color-mix(in oklch, var(--secondary-700) 80%, black);
+  --secondary-800: color-mix(in oklch, var(--secondary-700) 90%, black);
+  --secondary-700: #604847; /* brand secondary */
+  --secondary-600: color-mix(in oklch, var(--secondary-700) 80%, white);
+  --secondary-500: color-mix(in oklch, var(--secondary-700) 60%, white);
+  --secondary-300: color-mix(in oklch, var(--secondary-700) 30%, white);
+  --secondary-100: color-mix(in oklch, var(--secondary-700) 10%, white);
+  --secondary-50:  color-mix(in oklch, var(--secondary-700) 5%, white);
+
+  /* ---- Accent / CTA — bright gold (formerly "gold" var names, kept for compat) ---- */
+  --gold-900: color-mix(in oklch, var(--gold-500) 70%, black);
+  --gold-800: color-mix(in oklch, var(--gold-500) 80%, black);
+  --gold-700: color-mix(in oklch, var(--gold-500) 88%, black);
+  --gold-600: color-mix(in oklch, var(--gold-500) 94%, black);
+  --gold-500: #f3c937; /* CTA / 標題金色 */
+  --gold-400: color-mix(in oklch, var(--gold-500) 85%, white);
+  --gold-300: color-mix(in oklch, var(--gold-500) 65%, white);
+  --gold-200: color-mix(in oklch, var(--gold-500) 45%, white);
+  --gold-100: color-mix(in oklch, var(--gold-500) 25%, white);
+  --gold-50:  color-mix(in oklch, var(--gold-500) 10%, white);
+
+  /* ---- Soft warm accent — 輔助色 #BFA588 (chips, hairline fills, soft washes) ---- */
+  --warmaccent-700: color-mix(in oklch, var(--warmaccent-500) 80%, black);
+  --warmaccent-500: #bfa588; /* 輔助色 */
+  --warmaccent-300: color-mix(in oklch, var(--warmaccent-500) 45%, white);
+  --warmaccent-100: color-mix(in oklch, var(--warmaccent-500) 15%, white);
+  --warmaccent-50:  color-mix(in oklch, var(--warmaccent-500) 6%, white);
+
+  /* ---- Emphasis background — 背景強調色 #7B533E ---- */
+  --emphasis-700: color-mix(in oklch, var(--emphasis-500) 80%, black);
+  --emphasis-500: #7b533e; /* 背景強調色 */
+  --emphasis-300: color-mix(in oklch, var(--emphasis-500) 45%, white);
+
+  /* ---- Neutrals (warm-grey, paper-like — unchanged utility scale) ---- */
+  --neutral-950: #14151a;
+  --neutral-900: #1d1f26;
+  --neutral-800: #2b2e38;
+  --neutral-700: #3f4250;
+  --neutral-600: #5b5f70;
+  --neutral-500: #767b8d;
+  --neutral-400: #9a9eac;
+  --neutral-300: #c1c4cd;
+  --neutral-200: #dfe1e6;
+  --neutral-100: #eff0f3;
+  --neutral-50:  #f8f8fa;
+  --white: #ffffff;
+
+  /* ---- Semantic status (harmonized w/ new palette via oklch shifts) ---- */
+  --success-600: oklch(48% 0.10 145);
+  --success-500: oklch(58% 0.11 145);
+  --success-100: oklch(94% 0.04 145);
+
+  --warning-600: oklch(55% 0.14 70);
+  --warning-500: oklch(66% 0.15 70);
+  --warning-100: oklch(95% 0.05 80);
+
+  --danger-600: oklch(46% 0.16 30);
+  --danger-500: oklch(54% 0.18 30);
+  --danger-100: oklch(94% 0.05 30);
+
+  --info-600: oklch(48% 0.06 55);
+  --info-500: oklch(56% 0.07 55);
+  --info-100: oklch(94% 0.03 55);
+
+  /* ==== Semantic aliases ==== */
+  --brand-primary: var(--navy-800);        /* #552723 主色 */
+  --brand-primary-hover: var(--navy-900);
+  --brand-primary-active: var(--navy-950);
+  --brand-secondary: var(--secondary-700); /* #604847 次要色 */
+  --brand-secondary-hover: var(--secondary-800);
+  --brand-accent: var(--gold-500);         /* #F3C937 CTA / 標題金色 */
+  --brand-accent-hover: var(--gold-600);
+  --brand-accent-active: var(--gold-700);
+  --brand-warm: var(--warmaccent-500);     /* #BFA588 輔助色 */
+
+  --surface-page: var(--white);
+  --surface-canvas: var(--neutral-50);
+  --surface-card: var(--white);
+  --surface-card-alt: var(--navy-50);
+  --surface-inverse: var(--navy-800);
+  --surface-emphasis: var(--emphasis-500); /* #7B533E 背景強調色 */
+  --surface-overlay: rgba(85, 39, 35, 0.55);
+
+  --border-subtle: var(--neutral-200);
+  --border-default: var(--neutral-300);
+  --border-strong: var(--brand-secondary);
+  --border-accent: var(--gold-500);
+
+  /* 文字色：深色背景 = white；淺色背景 = #552723（主色） */
+  --text-heading: var(--navy-800);
+  --text-body: var(--navy-800);
+  --text-muted: var(--secondary-700);
+  --text-faint: var(--secondary-500);
+  --text-on-primary: var(--white);
+  --text-on-accent: var(--navy-800);
+  --text-link: var(--navy-800);
+  --text-link-hover: var(--gold-700);
+
+  --focus-ring: var(--gold-500);
+}
+
+/* ==========================================================================
+   富穗通訊處 — Typography Tokens
+   Display/Headings: Noto Serif TC (elegant, formal, editorial gravitas)
+   Body/UI: Noto Sans TC (clean, highly legible at small sizes)
+
+   NOTE — font substitution flagged to user: no brand font files were
+   provided. Noto Serif TC / Noto Sans TC are the nearest Traditional
+   Chinese Google Fonts match for a "clean, professional, high-net-worth
+   finance" feel. Swap in real brand fonts if/when supplied.
+   ========================================================================== */
+
+:root {
+  --font-serif-display: "Noto Serif TC", "Songti TC", "PMingLiU", serif;
+  --font-sans: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+  --font-mono: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+
+  /* Semantic role aliases */
+  --font-display: var(--font-serif-display);
+  --font-body: var(--font-sans);
+  --font-ui: var(--font-sans);
+
+  /* Scale — generous, editorial. 1920px slide / proposal-doc friendly */
+  --text-display-xl: 700 64px/1.15 var(--font-display);
+  --text-display-lg: 700 48px/1.2 var(--font-display);
+  --text-display-md: 600 36px/1.25 var(--font-display);
+  --text-h1: 700 32px/1.3 var(--font-sans);
+  --text-h2: 700 26px/1.35 var(--font-sans);
+  --text-h3: 600 22px/1.4 var(--font-sans);
+  --text-h4: 600 18px/1.45 var(--font-sans);
+  --text-body-lg: 400 18px/1.7 var(--font-sans);
+  --text-body-md: 400 16px/1.7 var(--font-sans);
+  --text-body-sm: 400 14px/1.6 var(--font-sans);
+  --text-caption: 400 12px/1.5 var(--font-sans);
+  --text-label: 500 13px/1.4 var(--font-sans);
+  --text-mono: 400 14px/1.6 var(--font-mono);
+
+  /* Letter spacing */
+  --tracking-tight: -0.01em;
+  --tracking-normal: 0em;
+  --tracking-wide: 0.04em;
+  --tracking-label: 0.08em; /* uppercase-ish English labels, kickers */
+}
+
+/* ==========================================================================
+   富穗通訊處 — Spacing, Radius, Shadow, Border, Motion Tokens
+   ========================================================================== */
+
+:root {
+  /* ---- Spacing scale (4px base) ---- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+  --space-32: 128px;
+
+  /* ---- Radius — rounded-card brand signature ---- */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-pill: 999px;
+
+  /* ---- Shadow — soft, low-contrast, "quiet wealth" ---- */
+  --shadow-xs: 0 1px 2px rgba(25, 25, 112, 0.06);
+  --shadow-sm: 0 2px 8px rgba(25, 25, 112, 0.08);
+  --shadow-md: 0 8px 24px rgba(25, 25, 112, 0.10);
+  --shadow-lg: 0 16px 48px rgba(25, 25, 112, 0.14);
+  --shadow-gold-glow: 0 0 0 1px rgba(212, 168, 67, 0.35), 0 8px 24px rgba(212, 168, 67, 0.18);
+
+  /* ---- Border widths ---- */
+  --border-width-hairline: 1px;
+  --border-width-default: 1px;
+  --border-width-strong: 2px;
+
+  /* ---- Motion — restrained, no bounce ---- */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1); /* @kind other */
+  --ease-out: cubic-bezier(0, 0, 0.2, 1); /* @kind other */
+  --duration-fast: 120ms; /* @kind other */
+  --duration-base: 200ms; /* @kind other */
+  --duration-slow: 360ms; /* @kind other */
+
+  /* ---- Container widths ---- */
+  --container-proposal: 960px;
+  --container-page: 1200px;
+}
